@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RSV Elite — Cancun VIP Reservations</title>
+<meta name="description" content="Exclusive access to Cancun's finest restaurants and nightclubs. Official partner of Grupo Rosa Negra, Grupo Anderson's & Coco Bongo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --gold:#C8A84B;
+  --gold2:#E8C97A;
+  --teal:#0BA89A;
+  --teal2:#3DD5C8;
+  --coral:#FF6B4A;
+  --sand:#F5EDD6;
+  --bg:#0D0D10;
+  --bg2:#141418;
+  --card:#16161C;
+  --txt:#F0EAD8;
+  --muted:#8A8070;
+  --muted2:#B0A48A;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--txt);font-family:'Inter',sans-serif;font-weight:300;overflow-x:hidden;cursor:none;}
+
+/* CURSOR */
+#dot{width:7px;height:7px;background:var(--gold);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:background .2s;}
+#ring{width:28px;height:28px;border:1.5px solid rgba(200,168,75,.55);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:all .13s ease;}
+@media(max-width:900px){#dot,#ring{display:none;}body{cursor:auto;}}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:1.5rem 4rem;transition:all .4s ease;}
+nav.sc{background:rgba(13,13,16,.96);backdrop-filter:blur(16px);padding:1rem 4rem;border-bottom:1px solid rgba(200,168,75,.14);}
+.logo{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:var(--gold);text-decoration:none;letter-spacing:.05em;}
+.logo em{font-style:normal;color:var(--teal2);font-weight:400;}
+.nav-l{display:flex;gap:2.2rem;list-style:none;}
+.nav-l a{color:var(--muted2);font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;transition:color .3s;font-weight:500;}
+.nav-l a:hover{color:var(--gold);}
+.nav-wa{display:flex;align-items:center;gap:.5rem;background:linear-gradient(135deg,var(--teal),#077A6F);color:#fff;padding:.55rem 1.4rem;font-size:.63rem;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;font-weight:600;transition:all .3s;cursor:none;}
+.nav-wa:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(11,168,154,.35);}
+.nav-wa svg{width:14px;height:14px;fill:#fff;}
+@media(max-width:900px){nav{padding:1.3rem 1.5rem;}nav.sc{padding:.9rem 1.5rem;}.nav-l,.nav-wa{display:none;}}
+
+/* HERO */
+#hero{height:100vh;min-height:680px;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.hbg{position:absolute;inset:0;background-image:url('images/PORTADA.jpg');background-size:cover;background-position:center 20%;transform:scale(1.07);animation:hzoom 16s ease-out forwards;}
+@keyframes hzoom{to{transform:scale(1);}}
+.hov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,13,16,.1) 0%,rgba(13,13,16,.2) 30%,rgba(13,13,16,.62) 72%,rgba(13,13,16,.93) 100%);}
+.hglow{position:absolute;bottom:0;left:0;right:0;height:55%;background:linear-gradient(to top,rgba(11,168,154,.10) 0%,rgba(200,168,75,.04) 50%,transparent 100%);pointer-events:none;}
+.hc{position:relative;text-align:center;padding:0 2rem;max-width:960px;}
+
+.h-badge{display:inline-flex;align-items:center;gap:.8rem;margin-bottom:2.2rem;opacity:0;animation:fu .8s .3s ease both;}
+.h-badge-line{width:40px;height:1px;background:linear-gradient(90deg,transparent,var(--gold));}
+.h-badge-line.r{background:linear-gradient(90deg,var(--gold),transparent);}
+.h-badge span{font-size:.58rem;letter-spacing:.38em;text-transform:uppercase;color:var(--gold2);font-weight:500;}
+
+h1.htitle{font-family:'Playfair Display',serif;font-size:clamp(3rem,8.5vw,7rem);font-weight:700;line-height:1.02;margin-bottom:1.2rem;opacity:0;animation:fu .9s .6s ease both;text-shadow:0 4px 30px rgba(0,0,0,.45);}
+h1.htitle em{font-style:italic;font-weight:400;color:var(--gold);display:block;}
+.hsub{font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(240,234,216,.65);margin-bottom:3rem;opacity:0;animation:fu .8s .9s ease both;}
+.hpills{display:flex;justify-content:center;gap:1.2rem;flex-wrap:wrap;margin-bottom:3rem;opacity:0;animation:fu .8s 1.1s ease both;}
+.hpill{font-size:.57rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted2);padding:.32rem 1rem;border:1px solid rgba(200,168,75,.22);font-weight:500;}
+.hbtns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;opacity:0;animation:fu .8s 1.3s ease both;}
+.btn-gold{background:var(--gold);color:#0D0D10;padding:1rem 2.8rem;font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;font-weight:700;cursor:none;transition:all .3s;text-decoration:none;display:inline-block;font-family:'Inter',sans-serif;}
+.btn-gold:hover{background:var(--gold2);transform:translateY(-2px);box-shadow:0 12px 30px rgba(200,168,75,.3);}
+.btn-ghost{background:transparent;color:var(--txt);padding:1rem 2.8rem;font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;font-weight:400;cursor:none;transition:all .3s;text-decoration:none;display:inline-block;border:1px solid rgba(240,234,216,.25);font-family:'Inter',sans-serif;}
+.btn-ghost:hover{border-color:var(--teal2);color:var(--teal2);}
+.hscroll{position:absolute;bottom:2.2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.45rem;opacity:0;animation:fu .8s 2s ease both;}
+.hscroll span{font-size:.5rem;letter-spacing:.38em;text-transform:uppercase;color:var(--muted);}
+.sline{width:1px;height:46px;background:linear-gradient(to bottom,var(--gold2),transparent);animation:sp 2.2s ease infinite;}
+@keyframes sp{0%,100%{opacity:.25;transform:scaleY(.75);}50%{opacity:1;transform:scaleY(1);}}
+@keyframes fu{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+
+/* MARQUEE */
+.marquee-wrap{background:var(--gold);padding:.7rem 0;overflow:hidden;white-space:nowrap;}
+.marquee-track{display:inline-flex;animation:mq 28s linear infinite;}
+.marquee-track span{font-size:.58rem;letter-spacing:.28em;text-transform:uppercase;color:#0D0D10;font-weight:700;padding:0 1.8rem;}
+.marquee-track .dot{color:rgba(13,13,16,.35);padding:0 .5rem;}
+@keyframes mq{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+/* ABOUT */
+#about{display:grid;grid-template-columns:1fr 1fr;background:var(--bg2);}
+.about-img{position:relative;min-height:560px;overflow:hidden;}
+.about-img img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(1.1);}
+.about-img::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent 50%,var(--bg2) 100%);}
+.about-img::before{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;z-index:3;background:linear-gradient(90deg,var(--teal),var(--gold),var(--coral));}
+.about-copy{padding:6rem 5rem;display:flex;flex-direction:column;justify-content:center;}
+.sl{font-size:.58rem;letter-spacing:.38em;text-transform:uppercase;color:var(--teal2);margin-bottom:.9rem;font-weight:500;}
+.st{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,3.5vw,2.9rem);font-weight:700;line-height:1.18;}
+.st em{font-style:italic;color:var(--gold);font-weight:400;}
+.dv{width:50px;height:2px;background:linear-gradient(90deg,var(--gold),rgba(200,168,75,.15));margin:1.6rem 0;}
+.about-copy p{color:var(--muted2);line-height:1.9;font-size:.88rem;margin-bottom:1rem;}
+.about-copy p strong{color:var(--teal2);font-weight:500;}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:2.5rem;}
+.stat{border-left:2px solid rgba(200,168,75,.3);padding-left:1.2rem;}
+.stn{font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:700;color:var(--gold);line-height:1;}
+.stl{font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-top:.3rem;}
+@media(max-width:900px){#about{grid-template-columns:1fr;}.about-img{min-height:260px;}.about-img::after{background:linear-gradient(0deg,var(--bg2) 5%,transparent 55%);}.about-copy{padding:3rem 1.5rem;}}
+
+/* VENUES */
+#venues{background:var(--bg);padding:7rem 4rem;}
+@media(max-width:900px){#venues{padding:5rem 1.5rem;}}
+.vh{text-align:center;margin-bottom:4rem;}
+.vh .dv{margin:1.5rem auto;}
+.tabs{display:flex;justify-content:center;margin-bottom:3.5rem;}
+.tab{padding:.82rem 2.2rem;background:transparent;border:1px solid rgba(200,168,75,.18);border-right:none;color:var(--muted2);font-family:'Inter',sans-serif;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;cursor:none;transition:all .3s;font-weight:500;}
+.tab:last-child{border-right:1px solid rgba(200,168,75,.18);}
+.tab.on{background:var(--gold);color:#0D0D10;border-color:var(--gold);}
+.tab:not(.on):hover{color:var(--gold);border-color:rgba(200,168,75,.4);}
+@media(max-width:700px){.tabs{flex-direction:column;}.tab{border-right:1px solid rgba(200,168,75,.18);border-bottom:none;}.tab:last-child{border-bottom:1px solid rgba(200,168,75,.18);}}
+.tc{display:none;animation:fadeIn .5s ease;}.tc.on{display:block;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+
+/* VENUE GRID */
+.vg{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;}
+.vc{position:relative;overflow:hidden;height:320px;cursor:none;background:var(--card);}
+.vi{width:100%;height:100%;object-fit:cover;display:block;transition:transform .75s cubic-bezier(.25,.46,.45,.94),filter .5s ease;filter:brightness(.5) saturate(.85);}
+.vc:hover .vi{transform:scale(1.12);filter:brightness(.25) saturate(.6);}
+.vc::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;z-index:4;background:linear-gradient(90deg,var(--teal),var(--gold),var(--coral));transform:scaleX(0);transform-origin:left;transition:transform .55s cubic-bezier(.22,1,.36,1);}
+.vc:hover::before{transform:scaleX(1);}
+.vo{position:absolute;inset:0;background:linear-gradient(to top,rgba(13,13,16,.98) 0%,rgba(13,13,16,.55) 45%,rgba(13,13,16,.1) 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:1.8rem;z-index:2;}
+.vtag{font-size:.52rem;letter-spacing:.28em;text-transform:uppercase;color:var(--teal2);margin-bottom:.35rem;font-weight:600;}
+.vname{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;line-height:1.1;transition:color .3s;}
+.vc:hover .vname{color:var(--gold2);}
+.vbody{max-height:0;overflow:hidden;transition:max-height .55s cubic-bezier(.22,1,.36,1) .05s;}
+.vc:hover .vbody{max-height:220px;}
+.vdesc{font-size:.76rem;color:var(--muted2);line-height:1.7;margin-top:.6rem;max-width:290px;}
+.vawards{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.7rem;}
+.vaward{font-size:.5rem;letter-spacing:.12em;text-transform:uppercase;background:rgba(200,168,75,.1);border:1px solid rgba(200,168,75,.25);color:var(--gold);padding:.2rem .55rem;}
+.vcta{display:inline-flex;align-items:center;gap:.4rem;margin-top:.9rem;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);text-decoration:none;font-weight:600;}
+.vcta::after{content:'→';transition:margin-left .3s;}
+.vcta:hover::after{margin-left:.3rem;}
+.vc.feat{grid-column:span 2;height:440px;}
+.vc.wide{grid-column:span 2;height:360px;}
+.vc.solo{grid-column:span 3;height:360px;}
+@media(max-width:900px){.vg{grid-template-columns:1fr 1fr;}.vc.feat,.vc.wide{grid-column:span 2;}.vc.solo{grid-column:span 2;}}
+@media(max-width:580px){.vg{grid-template-columns:1fr;}.vc,.vc.feat,.vc.wide,.vc.solo{grid-column:span 1;}}
+
+/* EXPERIENCE */
+#exp{background:var(--bg2);padding:8rem 4rem;position:relative;overflow:hidden;}
+#exp::before{content:'';position:absolute;top:-200px;right:-200px;width:550px;height:550px;border-radius:50%;background:radial-gradient(circle,rgba(200,168,75,.06) 0%,transparent 70%);pointer-events:none;}
+.exp-inner{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center;max-width:1200px;margin:0 auto;position:relative;z-index:1;}
+.exp-list{margin-top:2.5rem;list-style:none;}
+.exp-li{display:flex;gap:1.4rem;align-items:flex-start;margin-bottom:2rem;padding-bottom:2rem;border-bottom:1px solid rgba(200,168,75,.08);}
+.exp-li:last-child{border-bottom:none;}
+.exp-ico{width:38px;height:38px;min-width:38px;border:1px solid rgba(200,168,75,.25);display:flex;align-items:center;justify-content:center;font-size:.95rem;background:rgba(200,168,75,.05);}
+.exp-t{font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:.4rem;color:var(--txt);font-weight:600;}
+.exp-d{font-size:.82rem;color:var(--muted2);line-height:1.75;}
+.exp-vis{position:relative;height:520px;}
+.exp-vis img{width:100%;height:100%;object-fit:cover;display:block;}
+.exp-vis::before{content:'';position:absolute;inset:-3px;background:linear-gradient(135deg,var(--gold) 0%,transparent 45%,var(--teal) 100%);z-index:-1;}
+@media(max-width:900px){.exp-inner{grid-template-columns:1fr;gap:3rem;}.exp-vis{height:260px;}#exp{padding:5rem 1.5rem;}}
+
+/* HOW */
+#how{background:var(--bg);padding:8rem 4rem;text-align:center;}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:5rem;border:1px solid rgba(200,168,75,.1);}
+.step{padding:3rem 2rem;border-right:1px solid rgba(200,168,75,.1);transition:background .4s;}
+.step:last-child{border-right:none;}
+.step:hover{background:rgba(200,168,75,.04);}
+.step-ico{font-size:2rem;margin-bottom:1rem;}
+.step-n{font-family:'Playfair Display',serif;font-size:3.2rem;font-weight:700;color:rgba(200,168,75,.12);line-height:1;margin-bottom:1.2rem;}
+.step-t{font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--txt);margin-bottom:.9rem;font-weight:600;}
+.step-d{font-size:.8rem;color:var(--muted2);line-height:1.72;}
+@media(max-width:900px){.steps{grid-template-columns:1fr 1fr;}.step{border-bottom:1px solid rgba(200,168,75,.1);}#how{padding:5rem 1.5rem;}}
+@media(max-width:580px){.steps{grid-template-columns:1fr;}}
+
+/* TESTIMONIALS */
+#testi{background:var(--bg2);padding:7rem 4rem;}
+.tg{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-top:4rem;}
+.tc-c{background:var(--card);padding:2.5rem;border-top:2px solid transparent;transition:border-color .35s,background .35s;position:relative;overflow:hidden;}
+.tc-c::before{content:'"';font-family:'Playfair Display',serif;font-size:8rem;color:rgba(200,168,75,.04);position:absolute;top:-1rem;left:1rem;line-height:1;}
+.tc-c:hover{border-top-color:var(--gold);background:rgba(200,168,75,.03);}
+.stars{color:var(--gold);font-size:.72rem;margin-bottom:1.4rem;letter-spacing:.12em;}
+.tq{font-family:'Playfair Display',serif;font-size:1.05rem;font-style:italic;line-height:1.75;color:var(--txt);margin-bottom:1.8rem;position:relative;z-index:1;}
+.ta{font-size:.68rem;letter-spacing:.08em;color:var(--muted);}
+.ta strong{color:var(--gold2);display:block;font-weight:600;font-size:.73rem;margin-bottom:2px;}
+@media(max-width:900px){.tg{grid-template-columns:1fr;}#testi{padding:5rem 1.5rem;}}
+
+/* CONTACT */
+#contact{background:var(--bg);text-align:center;padding:9rem 4rem;position:relative;overflow:hidden;}
+#contact::before{content:'CANCÚN';font-family:'Playfair Display',serif;font-size:18vw;font-weight:700;color:rgba(200,168,75,.035);position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;white-space:nowrap;}
+#contact::after{content:'';position:absolute;bottom:-100px;left:50%;transform:translateX(-50%);width:700px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(11,168,154,.07) 0%,transparent 70%);pointer-events:none;}
+.cc{position:relative;z-index:1;max-width:740px;margin:0 auto;}
+.cc .dv{margin:1.6rem auto;}
+.cc>p{color:var(--muted2);font-size:.88rem;line-height:1.9;margin-bottom:3rem;}
+.cms{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin:3rem 0;}
+.cm{padding:2.5rem 1.5rem;background:var(--card);border:1px solid rgba(200,168,75,.1);transition:border-color .3s,background .3s,transform .3s;}
+.cm:hover{border-color:rgba(200,168,75,.35);background:rgba(200,168,75,.04);transform:translateY(-4px);}
+.cm-ico{font-size:1.6rem;margin-bottom:1rem;}
+.cm-l{font-size:.55rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);margin-bottom:.5rem;}
+.cm-v{font-family:'Playfair Display',serif;font-size:1rem;color:var(--txt);}
+.cm-v a{color:var(--gold2);text-decoration:none;transition:color .2s;}
+.cm-v a:hover{color:var(--teal2);}
+@media(max-width:900px){.cms{grid-template-columns:1fr;}#contact{padding:6rem 1.5rem;}}
+
+/* FOOTER */
+footer{background:var(--bg2);padding:2.5rem 4rem;display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(200,168,75,.1);}
+.fl{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--gold);}
+.fc{font-size:.6rem;color:var(--muted);letter-spacing:.08em;}
+.fls{display:flex;gap:2rem;}
+.fls a{font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .3s;}
+.fls a:hover{color:var(--gold);}
+@media(max-width:900px){footer{flex-direction:column;gap:1.5rem;text-align:center;padding:2.5rem 1.5rem;}}
+
+/* WA FLOAT */
+.waf{position:fixed;bottom:2rem;right:2rem;z-index:500;width:56px;height:56px;background:linear-gradient(135deg,#25D366,#128C7E);border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 4px 22px rgba(37,211,102,.4);animation:wap 3s ease infinite;transition:transform .3s;}
+.waf:hover{transform:scale(1.12);}
+@keyframes wap{0%,100%{box-shadow:0 4px 22px rgba(37,211,102,.35);}50%{box-shadow:0 4px 42px rgba(37,211,102,.65);}}
+.waf svg{width:27px;height:27px;fill:white;}
+
+/* REVEAL */
+.rv{opacity:0;transform:translateY(32px);transition:all .9s cubic-bezier(.16,1,.3,1);}
+.rv.in{opacity:1;transform:translateY(0);}
+.d1{transition-delay:.1s;}.d2{transition-delay:.2s;}.d3{transition-delay:.3s;}
+</style>
+</head>
+<body>
+
+<div id="dot"></div>
+<div id="ring"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="logo">RSV <em>Elite</em></a>
+  <ul class="nav-l">
+    <li><a href="#venues">Venues</a></li>
+    <li><a href="#exp">Experience</a></li>
+    <li><a href="#how">How It Works</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="https://wa.me/529983464917" class="nav-wa" target="_blank">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    Reserve Now
+  </a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hbg"></div>
+  <div class="hov"></div>
+  <div class="hglow"></div>
+  <div class="hc">
+    <div class="h-badge">
+      <div class="h-badge-line"></div>
+      <span>Cancún · Mexican Caribbean</span>
+      <div class="h-badge-line r"></div>
+    </div>
+    <h1 class="htitle">Where Luxury<br><em>Meets the Sea</em></h1>
+    <p class="hsub">Exclusive Reservations · VIP Access · Cancun's Finest</p>
+    <div class="hpills">
+      <span class="hpill">Grupo Rosa Negra</span>
+      <span class="hpill">Grupo Anderson's</span>
+      <span class="hpill">Coco Bongo</span>
+    </div>
+    <div class="hbtns">
+      <a href="#venues" class="btn-gold">Explore Venues</a>
+      <a href="https://wa.me/529983464917" class="btn-ghost" target="_blank">WhatsApp Us</a>
+    </div>
+  </div>
+  <div class="hscroll"><div class="sline"></div><span>Discover</span></div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Rosa Negra</span><span class="dot">✦</span><span>Tora Cancun</span><span class="dot">✦</span><span>Chambao</span><span class="dot">✦</span><span>Parole</span><span class="dot">✦</span><span>Mestiza</span><span class="dot">✦</span><span>Confessions</span><span class="dot">✦</span><span>Coco Beach</span><span class="dot">✦</span><span>Taboo</span><span class="dot">✦</span><span>Harry's</span><span class="dot">✦</span><span>Porfirio's</span><span class="dot">✦</span><span>Ilios</span><span class="dot">✦</span><span>Fred's</span><span class="dot">✦</span><span>Nicoletta</span><span class="dot">✦</span><span>Bodega Argentina</span><span class="dot">✦</span><span>H Roof</span><span class="dot">✦</span><span>Señor Frog's</span><span class="dot">✦</span><span>Coco Bongo</span><span class="dot">✦</span><span>Congo Bar</span><span class="dot">✦</span>
+    <span>Rosa Negra</span><span class="dot">✦</span><span>Tora Cancun</span><span class="dot">✦</span><span>Chambao</span><span class="dot">✦</span><span>Parole</span><span class="dot">✦</span><span>Mestiza</span><span class="dot">✦</span><span>Confessions</span><span class="dot">✦</span><span>Coco Beach</span><span class="dot">✦</span><span>Taboo</span><span class="dot">✦</span><span>Harry's</span><span class="dot">✦</span><span>Porfirio's</span><span class="dot">✦</span><span>Ilios</span><span class="dot">✦</span><span>Fred's</span><span class="dot">✦</span><span>Nicoletta</span><span class="dot">✦</span><span>Bodega Argentina</span><span class="dot">✦</span><span>H Roof</span><span class="dot">✦</span><span>Señor Frog's</span><span class="dot">✦</span><span>Coco Bongo</span><span class="dot">✦</span><span>Congo Bar</span><span class="dot">✦</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-img rv">
+    <img src="images/ROSA NEGRA .jpg" alt="Rosa Negra Cancun">
+  </div>
+  <div class="about-copy rv d2">
+    <p class="sl">Who We Are</p>
+    <h2 class="st">The Mexican Caribbean's Most <em>Exclusive</em> Access</h2>
+    <div class="dv"></div>
+    <p>RSV Elite is Cancun's premier concierge reservation service — your direct, hassle-free connection to the most coveted tables, VIP booths, and nightlife experiences in the Mexican Caribbean.</p>
+    <p>We are the <strong>official booking partner</strong> for Grupo Rosa Negra, Grupo Anderson's, and Coco Bongo — three legendary hospitality empires with 18+ of Cancun's most iconic venues.</p>
+    <p>From watching the sun melt into Nichupté Lagoon over a perfectly grilled Kobe steak, to the world's most spectacular show-club — we handle every detail so you simply arrive and live it.</p>
+    <div class="stats">
+      <div class="stat"><div class="stn">18+</div><div class="stl">Elite Venues</div></div>
+      <div class="stat"><div class="stn">3</div><div class="stl">Iconic Groups</div></div>
+      <div class="stat"><div class="stn">VIP</div><div class="stl">Priority Access</div></div>
+      <div class="stat"><div class="stn">24h</div><div class="stl">Concierge Service</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- VENUES -->
+<section id="venues">
+  <div class="vh rv">
+    <p class="sl">Our Portfolio</p>
+    <h2 class="st">The Finest <em>Venues</em> in Cancun</h2>
+    <div class="dv"></div>
+  </div>
+  <div class="tabs rv">
+    <button class="tab on" onclick="showTab('rosa',this)">Grupo Rosa Negra</button>
+    <button class="tab" onclick="showTab('and',this)">Grupo Anderson's</button>
+    <button class="tab" onclick="showTab('coco',this)">Coco Bongo</button>
+  </div>
+
+  <!-- ROSA NEGRA -->
+  <div class="tc on" id="tab-rosa">
+    <div class="vg">
+      <div class="vc feat">
+        <img class="vi" src="images/ROSA NEGRA .jpg" alt="Rosa Negra">
+        <div class="vo">
+          <p class="vtag">Latin American · Lagoon · Live Shows</p>
+          <h3 class="vname">Rosa Negra</h3>
+          <div class="vbody">
+            <p class="vdesc">Set on a stunning multi-level wooden deck over Nichupté Lagoon, Rosa Negra is a celebration of Latin American gastronomy. Kobe beef, Peruvian ceviches, tiraditos, charcoal-roasted cuts — served to live bongos, a resident DJ and a fire show under the Caribbean sky. Open daily 1pm–3am.</p>
+            <div class="vawards"><span class="vaward">Lagoon Dock</span><span class="vaward">Fire Show</span><span class="vaward">Private Events</span></div>
+            <a href="https://wa.me/529983464917" class="vcta" target="_blank">Reserve Table</a>
+          </div>
+        </div>
+      </div>
+      <div class="vc">
+        <img class="vi" src="images/TORA CANCUN.jpg" alt="Tora Cancun">
+        <div class="vo">
+          <p class="vtag">Japanese Fine Dining</p>
+          <h3 class="vname">Tora Cancun</h3>
+          <div class="vbody">
+            <p class="vdesc">Contemporary Japanese cuisine by Chef Seiya Noborikawa — omakase, premium sushi, Japanese technique fused with Peruvian flavors, breathtaking lagoon views and a live fire show.</p>
+            <a href="https://wa.me/529983464917" class="vcta" target="_blank">Reserve Table</a>
+          </div>
+        </div>
+      </div>
+      <div class="vc">
+        <img class="vi" src="images/CHAMBAO.jpg" alt="Chambao">
+        <div class="vo">
+          <p class="vtag">Premium Steakhouse</p>
+          <h3 class="vname">Chambao</h3>
+          <div class="vbody">
+            <p class="vdesc">Overwater decks, premium Argentine and USA Prime cuts, vibrant live entertainment and a glamorous atmosphere that turns every dinner into a night to remember.</p>
+            <a href="https://wa.me/529983464917" class="vcta" target="_blank">Reserve Table</a>
+          </div>
+        </div>
+      </div>
+      <div class="vc">
+        <img class="vi" src="images/CONFESSIONS.jpg" alt="Confessions">
+        <div class="vo">
+          <p class="vtag">Nightclub · Visual Mixology</p>
+          <h3 class="vname">Confessions</h3>
+          <div class="vbody">
+            <p class="vdesc">Cancun's most seductive open-air nightclub. Electronic beats, visual mixology, resident and international DJs — a boho-chic atmosphere that comes alive after dark in the Hotel Zone.</p>
+            <a href="https://wa.me/529983464917" class="vcta" target="_blank">Reserve Table</a>
+          </div>
+        </div>
+      </div>
+      <div class="vc">
+        <img class="vi" src="images/PAROLE.png" alt="Parole">
+        <div class="vo">
+          <p class="vtag">Italian · Romantic · Live Violin</p>
+          <h3 class="vname">Parole</h3>
+          <div class="vbody">
+            <p class="vdesc">Steeped in history and tradition — every dish handmade, exclusive seafood ingredients, live violin and tenor music creating timeless Italian romance overlooking the lagoon.</p>
+            <a href="https://wa.me/529983464917" class="vcta" target="_blank">Reserve Table</a>
+          </div>
+        </div>
+      </div>
+      <div class="vc">
+        <img class="vi" src="images/MESTIZA .jpg" alt="Mestiza">
+        <div class="vo">
+          <p class="vtag">Latin American · Casual Luxury</p>
+          <h3 class="vname">Mestiza</h3>
+          <div class="vbody">
+            <p class="vdesc">A vibrant tribute to Latin America — Peruvian, Argentine, Colombian, Brazilian and Mexican culinary traditions united in one bold, flavorful menu with warm Caribbean energy.</p>
+            <a href="https://wa.me/529983464917" class="vcta" target="_blank">Reserve Table</a>
+          </div>
+        </div>
+      </div>
+      <div class="vc">
+        <img class="vi" src="images/taboo.jpg" alt="Taboo">
+        <div class="vo">
+          <p class="vtag">Mediterranean · Boho-Chic Lounge</p>
+          <h3 class="vname">Taboo</h3>
+          <div class="vbody">
+            <p class="vdesc">An exotic, eclectic lounge inspired by Tulum's soul — Mediterranean cuisine, fashion shows, violinists, and House & Electronic DJs. Where beauty meets rhythm.</p>
+            <a href="https://wa.me/529983464917" class="vcta" target="_blank">Reserve Table</a>
+          </div>
+        </div>
+      </div>
+      <div class="vc wide">
+        <img class="vi" src="images/COCO BEACH.jpg" alt="Coco Beach">
+        <div class="vo">
+          <p class="vtag">Beach Club · Caribbean</p>
+          <h3 class="vname">Coco Beach</h3>
+          <div class="vbody">
+            <p class="vdesc">The ultimate Mexican Caribbean beach club — crystal turquoise waters, luxury sunbeds, premium cocktails and world-class service under the Cancun sun. Your Caribbean day starts here.</p>
+            <a href="https://wa.me/529983464917" class="vcta" target="_blank">Reserve Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ANDERSON'S -->
+  <div class="tc" id="tab-and">
+    <div class="vg">
+      <div class="vc feat">
+        <img class="vi" src="images/HARRYS.jpg" alt="Harry's">
+        <div class="vo">
+          <p class="vtag">Prime Steakhouse & Raw Bar · 5 Star Diamond</p>
+          <h3 class="vname">Harry's</h3>
+          <div class="vbody">
+            <p class="vdesc">Named Mexico's most trusted restaurant year after year, Harry's defines fine dining in Cancun. Kobe beef, Japanese Wagyu, Alaskan King Crab and a Raw Bar showcasing the finest oceanic treasures — all on the Nichupté Lagoon with flawless service.</p>
+            <div class="vawards"><span class="vaward">5 Star Diamond AAHS</span><span class="vaward">Premios Marcas de Confianza 2025</span></div>
+            <a href="https://wa.me/529983464917" class="vcta" target="_blank">Reserve Table</a>
+          </div>
+        </div>
+      </div>
+      <div class="vc">
+        <img class="vi" src="images/PORFIRIOS.png" alt="Porfirios">
+        <div class="vo">
+          <p class="vtag">Mexican Haute Cuisine · Cultural Icon</p>
+          <h3 class="vname">Porfirio's</h3>
+          <div class="vbody">
+            <p class="vdesc">Mexico's most celebrated fine dining institution — elevating the country's rich flavors, textures and aromas into haute cuisine. Winner: Best Mexican Cuisine, World Best of the Best Awards, Dubai.</p>
+            <div class="vawards"><span class="vaward">5 Star Diamond AAHS</span><span class="vaward">Best Mexican Cuisine — Dubai</span></div>
+            <a href="https://wa.me/529983464917" class="vcta" target="_blank">Reserve Table</a>
+          </div>
+        </div>
+      </div>
+      <div class="vc">
+        <img class="vi" src="images/ILIOS.jpg" alt="Ilios">
+        <div class="vo">
+          <p class="vtag">Greek Estiatorio · Award-Winning</p>
+          <h3 class="vname">Ilios</h3>
+          <div class="vbody">
+            <p class="vdesc">Greek cuisine elevated to art in a space that won the DNA Paris Design Award for Best Interior Design. Named Best Restaurant in the Americas & Caribbean — tradition, elegance and sophistication in every bite.</p>
+            <div class="vawards"><span class="vaward">DNA Paris Design Award</span><span class="vaward">Best Restaurant Americas</span></div>
+            <a href="https://wa.me/529983464917" class="vcta" target="_blank">Reserve Table</a>
+          </div>
+        </div>
+      </div>
+      <div class="vc">
+        <img class="vi" src="images/FREDS.jpg" alt="Fred's">
+        <div class="vo">
+          <p class="vtag">Seafood & Lobster · Lagoon Views</p>
+          <h3 class="vname">Fred's</h3>
+          <div class="vbody">
+            <p class="vdesc">Since 2011, Cancun's definitive seafood destination — the finest lobsters, fresh catch and American classics served with stunning Nichupté Lagoon views. One of Mexico's 100 Must-Try Restaurants 2022.</p>
+            <div class="vawards"><span class="vaward">100 Must-Try Restaurants MX 2022</span><span class="vaward">TripAdvisor Choice 2021</span></div>
+            <a href="https://wa.me/529983464917" class="vcta" target="_blank">Reserve Table</a>
+          </div>
+        </div>
+      </div>
+      <div class="vc">
+        <img class="vi" src="images/NICOLETTA.jpeg" alt="Nicoletta">
+        <div class="vo">
+          <p class="vtag">Italian Contemporary · Fusion</p>
+          <h3 class="vname">Nicoletta</h3>
+          <div class="vbody">
+            <p class="vdesc">Italian culinary diversity reimagined with Mexican endemic ingredients — unique taste experiences honoring both traditions. 5 Star Diamond recipient and awarded Best International Cuisine by Taste México.</p>
+            <div class="vawards"><span class="vaward">5 Star Diamond AAHS</span><span class="vaward">Best International Cuisine</span></div>
+            <a href="https://wa.me/529983464917" class="vcta" target="_blank">Reserve Table</a>
+          </div>
+        </div>
+      </div>
+      <div class="vc">
+        <img class="vi" src="images/BODEGA ARGENTINA.jpg" alt="Bodega Argentina">
+        <div class="vo">
+          <p class="vtag">Argentine Parrilla · Puerto Cancún</p>
+          <h3 class="vname">Bodega Argentina</h3>
+          <div class="vbody">
+            <p class="vdesc">A celebration of the Argentine grill tradition — premium cuts, authentic parrilla techniques, curated wines and a Buenos Aires bodegón atmosphere in exclusive Puerto Cancún. Perfect for romantic dinners and celebrations.</p>
+            <a href="https://wa.me/529983464917" class="vcta" target="_blank">Reserve Table</a>
+          </div>
+        </div>
+      </div>
+      <div class="vc">
+        <img class="vi" src="images/H ROOF.jpeg" alt="H Roof">
+        <div class="vo">
+          <p class="vtag">Rooftop Nightclub · 5 Star Diamond</p>
+          <h3 class="vname">H Roof</h3>
+          <div class="vbody">
+            <p class="vdesc">Cancun's most exclusive rooftop nightclub — awarded the 5 Star Diamond by the AAHS (the organization founded by Frank Sinatra). Where Cancun's chic and international crowd creates legendary nights above the Hotel Zone skyline.</p>
+            <div class="vawards"><span class="vaward">5 Star Diamond AAHS</span></div>
+            <a href="https://wa.me/529983464917" class="vcta" target="_blank">Reserve Table</a>
+          </div>
+        </div>
+      </div>
+      <div class="vc wide">
+        <img class="vi" src="images/SEÑOR FROGS.jpg" alt="Señor Frog's">
+        <div class="vo">
+          <p class="vtag">Mexican Party Restaurant · Est. 1971</p>
+          <h3 class="vname">Señor Frog's</h3>
+          <div class="vbody">
+            <p class="vdesc">A Cancun institution since 1971 and a rite of passage for millions of visitors. Bold Mexican food, the legendary Yard drinks, live music and wild energy — 100% Mexican, 100% unforgettable. The fiesta that never stops.</p>
+            <div class="vawards"><span class="vaward">Est. 1971</span><span class="vaward">Cancun Institution</span><span class="vaward">Lagoon Views</span></div>
+            <a href="https://wa.me/529983464917" class="vcta" target="_blank">Reserve Table</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COCO BONGO -->
+  <div class="tc" id="tab-coco">
+    <div class="vg">
+      <div class="vc feat" style="height:500px;">
+        <img class="vi" src="images/COCO BONGO .avif" alt="Coco Bongo">
+        <div class="vo">
+          <p class="vtag">World-Famous Show-Club · Est. 1996 · 1,800+ Capacity</p>
+          <h3 class="vname">Coco Bongo</h3>
+          <div class="vbody">
+            <p class="vdesc">Las Vegas meets Cirque du Soleil in Cancun's Hotel Zone. Flying acrobats perform 300, Moulin Rouge, Queen, The Mask and more — confetti rains, balloons cascade, 40+ professional artists electrify the night with an open bar. The most iconic nightclub in Latin America for nearly 30 years.</p>
+            <div class="vawards"><span class="vaward">Open Daily 10:30pm–5am</span><span class="vaward">40+ Artists Nightly</span><span class="vaward">VIP Gold Member</span></div>
+            <a href="https://wa.me/529983464917" class="vcta" target="_blank">Get VIP Access</a>
+          </div>
+        </div>
+      </div>
+      <div class="vc" style="height:500px;">
+        <img class="vi" src="images/CONGO BAR.jpg" alt="Congo Bar">
+        <div class="vo">
+          <p class="vtag">Classic Nightclub · Hotel Zone</p>
+          <h3 class="vname">Congo Bar</h3>
+          <div class="vbody">
+            <p class="vdesc">Right next door to Coco Bongo, Congo Bar is a Cancun classic — high-energy dance floor, great music mixing decades and genres, and the perfect spot to warm up or keep the night going.</p>
+            <div class="vawards"><span class="vaward">Hotel Zone</span><span class="vaward">Adjacent to Coco Bongo</span></div>
+            <a href="https://wa.me/529983464917" class="vcta" target="_blank">Reserve Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="exp">
+  <div class="exp-inner">
+    <div class="rv">
+      <p class="sl">The RSV Elite Difference</p>
+      <h2 class="st">More Than a <em>Reservation</em></h2>
+      <div class="dv"></div>
+      <ul class="exp-list">
+        <li class="exp-li"><div class="exp-ico">🌊</div><div><p class="exp-t">Caribbean Priority Access</p><p class="exp-d">Your table, VIP booth or club entry guaranteed in advance across all 18+ venues. Skip the line and arrive as the guest of honor you deserve to be.</p></div></li>
+        <li class="exp-li"><div class="exp-ico">✦</div><div><p class="exp-t">Personal Concierge</p><p class="exp-d">Birthday setups, special décor, dietary requirements, transfer coordination and group logistics — every detail handled before you arrive.</p></div></li>
+        <li class="exp-li"><div class="exp-ico">🤝</div><div><p class="exp-t">Official Partnership</p><p class="exp-d">Direct, official connection to all three groups. No middlemen, no surprises — just seamless, privileged access to Cancun's elite venues.</p></div></li>
+        <li class="exp-li"><div class="exp-ico">💬</div><div><p class="exp-t">English & Spanish · 24/7</p><p class="exp-d">Serving international visitors and locals alike, around the clock via WhatsApp. We reply in minutes — because your night can't wait.</p></div></li>
+      </ul>
+    </div>
+    <div class="exp-vis rv d2">
+      <img src="images/HARRYS.jpg" alt="Harry's Fine Dining Cancun">
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how">
+  <p class="sl rv">The Process</p>
+  <h2 class="st rv" style="margin:0 auto;text-align:center;max-width:500px;">Four Steps to an <em>Unforgettable Night</em></h2>
+  <div class="steps rv">
+    <div class="step"><div class="step-ico">🏖️</div><div class="step-n">01</div><p class="step-t">Choose Your Venue</p><p class="step-d">Browse 18+ elite venues across three legendary Cancun hospitality groups — restaurants, clubs and beach clubs.</p></div>
+    <div class="step"><div class="step-ico">📱</div><div class="step-n">02</div><p class="step-t">Contact Us</p><p class="step-d">Message us on WhatsApp or Instagram with your date, number of guests and any special requests.</p></div>
+    <div class="step"><div class="step-ico">⚡</div><div class="step-n">03</div><p class="step-t">We Handle Everything</p><p class="step-d">Your personal concierge secures the reservation, coordinates every detail and confirms your priority access — fast.</p></div>
+    <div class="step"><div class="step-ico">🥂</div><div class="step-n">04</div><p class="step-t">Arrive & Enjoy</p><p class="step-d">Show up, feel the warm Caribbean breeze, skip the line and let Cancun's finest hospitality take care of the rest.</p></div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testi">
+  <p class="sl rv">What Our Guests Say</p>
+  <h2 class="st rv">Stories from the <em>Caribbean Night</em></h2>
+  <div class="tg rv">
+    <div class="tc-c">
+      <div class="stars">★ ★ ★ ★ ★</div>
+      <p class="tq">"RSV Elite made our bachelorette absolutely unforgettable. Rosa Negra at sunset — bongos, fire show, incredible lagoon views — then Coco Bongo VIP. They handled everything flawlessly."</p>
+      <div class="ta"><strong>Ashley M.</strong>Chicago, IL · Bachelorette Party</div>
+    </div>
+    <div class="tc-c">
+      <div class="stars">★ ★ ★ ★ ★</div>
+      <p class="tq">"Harry's was everything — Kobe beef, Nichupté Lagoon, impeccable service. RSV secured the best table in the house for our anniversary. Pure Caribbean luxury."</p>
+      <div class="ta"><strong>Carlos R.</strong>Mexico City · Anniversary Dinner</div>
+    </div>
+    <div class="tc-c">
+      <div class="stars">★ ★ ★ ★ ★</div>
+      <p class="tq">"18 people, three restaurants, Coco Bongo Gold VIP for all of us — every single detail was perfect. RSV Elite is the only way to experience Cancun properly."</p>
+      <div class="ta"><strong>James & Group</strong>New York, NY · Corporate Retreat</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="cc rv">
+    <p class="sl">Get in Touch</p>
+    <h2 class="st">Ready for Your <em>Caribbean Night?</em></h2>
+    <div class="dv"></div>
+    <p>Our concierge team is available 24/7 and replies in minutes. The warm Caribbean sea, the finest cuisine and the world's most spectacular nightlife are waiting — all you have to do is ask.</p>
+    <div class="cms">
+      <div class="cm"><div class="cm-ico">📱</div><p class="cm-l">WhatsApp</p><p class="cm-v"><a href="https://wa.me/529983464917" target="_blank">+52 998 346 4917</a></p></div>
+      <div class="cm"><div class="cm-ico">📸</div><p class="cm-l">Instagram</p><p class="cm-v"><a href="https://www.instagram.com/rsv_elite?igsh=ZzdhMzRudjR3bG0%3D&utm_source=qr" target="_blank">@rsv_elite</a></p></div>
+      <div class="cm"><div class="cm-ico">📍</div><p class="cm-l">Location</p><p class="cm-v" style="font-size:.85rem;line-height:1.6;">Zona Hotelera, Cancún<br>Quintana Roo, México</p></div>
+    </div>
+    <a href="https://wa.me/529983464917" class="btn-gold" target="_blank">WhatsApp Us Now</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="fl">RSV Elite</div>
+  <p class="fc">© 2025 RSV Elite · Cancún, Mexican Caribbean</p>
+  <div class="fls">
+    <a href="#venues">Venues</a>
+    <a href="#how">How It Works</a>
+    <a href="#contact">Contact</a>
+    <a href="https://www.instagram.com/rsv_elite?igsh=ZzdhMzRudjR3bG0%3D&utm_source=qr" target="_blank">Instagram</a>
+  </div>
+</footer>
+
+<!-- WA Float -->
+<a href="https://wa.me/529983464917" class="waf" target="_blank" aria-label="WhatsApp RSV Elite">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+// Cursor
+const dot=document.getElementById('dot'),ring=document.getElementById('ring');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
+(function a(){dot.style.left=mx+'px';dot.style.top=my+'px';rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(a);})();
+document.querySelectorAll('a,button').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{ring.style.transform='translate(-50%,-50%) scale(1.8)';ring.style.borderColor='rgba(200,168,75,.9)';dot.style.background='#3DD5C8';});
+  el.addEventListener('mouseleave',()=>{ring.style.transform='translate(-50%,-50%) scale(1)';ring.style.borderColor='rgba(200,168,75,.55)';dot.style.background='#C8A84B';});
+});
+
+// Nav scroll
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('sc',window.scrollY>80));
+
+// Scroll reveal
+const io=new IntersectionObserver(e=>{
+  e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}});
+},{threshold:.08});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+// Tabs
+function showTab(id,btn){
+  document.querySelectorAll('.tc').forEach(t=>t.classList.remove('on'));
+  document.querySelectorAll('.tab').forEach(b=>b.classList.remove('on'));
+  document.getElementById('tab-'+id).classList.add('on');
+  btn.classList.add('on');
+}
+</script>
+</body>
+</html>
