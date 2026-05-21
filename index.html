@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RSV Elite — Cancun VIP Concierge</title>
+<meta name="description" content="Cancun's premier reservation service. Restaurants, nightlife, yachts and private airport transfers.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --gold:#C0923A;
+  --gold2:#D4A84B;
+  --gold3:#ECC96A;
+  --cream:#F7F3EC;
+  --sand:#EDE5D0;
+  --sand2:#DDD3BA;
+  --dark:#0E0E10;
+  --dark2:#161618;
+  --dark3:#1F1F22;
+  --dark4:#2A2A2E;
+  --txt:#1C1C1E;
+  --txt2:#4A4A50;
+  --txt3:#888890;
+  --white:#FFFFFF;
+}
+
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--cream);color:var(--txt);font-family:'Jost',sans-serif;font-weight:300;overflow-x:hidden;}
+
+/* TYPOGRAPHY */
+.f-serif{font-family:'Cormorant Garamond',serif;}
+.label{font-family:'Jost',sans-serif;font-size:.58rem;letter-spacing:.42em;text-transform:uppercase;color:var(--gold);font-weight:500;}
+h1,h2,h3{font-family:'Cormorant Garamond',serif;}
+h2{font-size:clamp(2rem,3.8vw,3.2rem);font-weight:400;line-height:1.15;color:var(--dark);}
+h2 em{font-style:italic;color:var(--gold);font-weight:300;}
+h2.light{color:var(--white);}
+.rule{width:40px;height:1px;background:var(--gold);margin:1.5rem 0;}
+.rule.center{margin-left:auto;margin-right:auto;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:1.4rem 5vw;display:flex;align-items:center;justify-content:space-between;transition:all .4s;}
+nav.sc{background:rgba(14,14,16,.97);backdrop-filter:blur(20px);padding:1rem 5vw;border-bottom:1px solid rgba(192,146,58,.12);}
+.logo{font-family:'Cormorant Garamond',serif;font-size:1.55rem;font-weight:500;color:var(--white);text-decoration:none;letter-spacing:.08em;}
+.logo span{color:var(--gold2);font-weight:300;font-style:italic;}
+.nav-links{display:flex;gap:2.5rem;list-style:none;}
+.nav-links a{color:rgba(255,255,255,.55);font-family:'Jost',sans-serif;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;text-decoration:none;transition:color .3s;font-weight:400;}
+.nav-links a:hover{color:var(--gold2);}
+.nav-cta{background:var(--gold);color:var(--dark);padding:.6rem 1.8rem;font-family:'Jost',sans-serif;font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;font-weight:600;text-decoration:none;transition:all .3s;}
+.nav-cta:hover{background:var(--gold2);transform:translateY(-1px);}
+@media(max-width:900px){nav{padding:1.2rem 1.5rem;}nav.sc{padding:.9rem 1.5rem;}.nav-links,.nav-cta{display:none;}}
+
+/* HERO */
+#hero{height:100vh;min-height:640px;position:relative;display:flex;align-items:flex-end;overflow:hidden;}
+.hero-bg{position:absolute;inset:0;background-image:url('FOTOS PAGINA/PORTADA.jpg');background-size:cover;background-position:center 30%;}
+.hero-ov{position:absolute;inset:0;background:linear-gradient(160deg,rgba(14,14,16,.08) 0%,rgba(14,14,16,.35) 40%,rgba(14,14,16,.90) 100%);}
+.hero-inner{position:relative;padding:0 5vw 6rem;width:100%;max-width:1200px;}
+
+.hero-eyebrow{display:inline-flex;align-items:center;gap:.8rem;margin-bottom:1.8rem;}
+.hero-eyebrow-bar{width:36px;height:1px;background:var(--gold);}
+.hero-eyebrow span{font-family:'Jost',sans-serif;font-size:.56rem;letter-spacing:.42em;text-transform:uppercase;color:var(--gold2);font-weight:400;}
+
+h1.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(3.2rem,7.5vw,6.5rem);font-weight:300;line-height:1.05;color:var(--white);margin-bottom:1.4rem;}
+h1.hero-title strong{display:block;font-weight:500;color:var(--gold3);}
+
+.hero-sub{font-family:'Jost',sans-serif;font-size:.88rem;color:rgba(255,255,255,.6);line-height:1.85;max-width:480px;margin-bottom:2.8rem;font-weight:300;letter-spacing:.02em;}
+
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;}
+.btn{font-family:'Jost',sans-serif;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;font-weight:500;text-decoration:none;display:inline-block;padding:.9rem 2.4rem;transition:all .3s;}
+.btn-solid{background:var(--gold);color:var(--dark);}
+.btn-solid:hover{background:var(--gold2);transform:translateY(-2px);box-shadow:0 10px 28px rgba(192,146,58,.28);}
+.btn-line{border:1px solid rgba(255,255,255,.28);color:var(--white);}
+.btn-line:hover{border-color:var(--gold2);color:var(--gold2);}
+
+.hero-scroll{position:absolute;right:5vw;bottom:2.5rem;display:flex;flex-direction:column;align-items:center;gap:.5rem;}
+.hero-scroll p{font-family:'Jost',sans-serif;font-size:.46rem;letter-spacing:.38em;text-transform:uppercase;color:rgba(255,255,255,.35);writing-mode:vertical-rl;}
+.hero-line{width:1px;height:44px;background:linear-gradient(to bottom,var(--gold),transparent);animation:hl 2.2s ease infinite;}
+@keyframes hl{0%,100%{opacity:.25;}50%{opacity:1;}}
+
+/* MARQUEE */
+.mq{background:var(--gold);padding:.65rem 0;overflow:hidden;white-space:nowrap;}
+.mq-track{display:inline-flex;animation:mq 32s linear infinite;}
+.mq-track span{font-family:'Jost',sans-serif;font-size:.52rem;letter-spacing:.3em;text-transform:uppercase;color:var(--dark);font-weight:600;padding:0 2rem;}
+.mq-track .dot{color:rgba(14,14,16,.28);padding:0 .5rem;}
+@keyframes mq{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+/* STRIP */
+.strip{background:var(--dark);display:grid;grid-template-columns:repeat(4,1fr);}
+.strip-item{padding:2.2rem 2rem;border-right:1px solid rgba(255,255,255,.05);text-align:center;transition:background .3s;}
+.strip-item:last-child{border-right:none;}
+.strip-item:hover{background:rgba(192,146,58,.04);}
+.strip-icon{width:32px;height:32px;margin:0 auto .9rem;opacity:.5;}
+.strip-icon svg{width:100%;height:100%;fill:var(--gold);}
+.strip-title{font-family:'Jost',sans-serif;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold2);margin-bottom:.4rem;font-weight:500;}
+.strip-desc{font-family:'Jost',sans-serif;font-size:.75rem;color:rgba(255,255,255,.38);line-height:1.6;font-weight:300;}
+@media(max-width:700px){.strip{grid-template-columns:1fr 1fr;}.strip-item{border-bottom:1px solid rgba(255,255,255,.05);}.strip-item:nth-child(odd){border-right:1px solid rgba(255,255,255,.05);}.strip-item:nth-child(even){border-right:none;}}
+
+/* ABOUT */
+#about{display:grid;grid-template-columns:1fr 1fr;background:var(--white);}
+.about-img{position:relative;min-height:540px;overflow:hidden;}
+.about-img img{width:100%;height:100%;object-fit:cover;display:block;}
+.about-img::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent 55%,var(--white) 100%);}
+.about-img::before{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;z-index:2;background:var(--gold);}
+.about-copy{padding:6rem 5rem;display:flex;flex-direction:column;justify-content:center;}
+.about-copy p{font-family:'Jost',sans-serif;color:var(--txt2);line-height:1.95;font-size:.86rem;margin-bottom:1rem;font-weight:300;}
+.about-copy p strong{color:var(--gold);font-weight:500;}
+.about-nums{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem;padding-top:2rem;border-top:1px solid var(--sand);}
+.num-n{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:400;color:var(--gold);line-height:1;}
+.num-l{font-family:'Jost',sans-serif;font-size:.55rem;letter-spacing:.18em;text-transform:uppercase;color:var(--txt3);margin-top:.25rem;font-weight:400;}
+@media(max-width:900px){#about{grid-template-columns:1fr;}.about-img{min-height:240px;}.about-img::after{background:linear-gradient(0deg,var(--white) 5%,transparent 55%);}.about-copy{padding:3rem 1.5rem;}}
+
+/* SECTION */
+.section{padding:7rem 5vw;}
+.section-head{margin-bottom:4rem;}
+.section-head.center{text-align:center;}
+@media(max-width:900px){.section{padding:5rem 1.5rem;}}
+
+/* TABS */
+.tabs{display:flex;gap:0;margin-bottom:3rem;border-bottom:1px solid var(--sand2);}
+.tab-btn{padding:.75rem 2rem;background:transparent;border:none;font-family:'Jost',sans-serif;font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--txt3);cursor:pointer;transition:all .3s;font-weight:500;border-bottom:1.5px solid transparent;margin-bottom:-1px;}
+.tab-btn.on{color:var(--gold);border-bottom-color:var(--gold);}
+.tab-btn:hover:not(.on){color:var(--txt2);}
+.tab-pane{display:none;}.tab-pane.on{display:block;animation:fdup .45s ease;}
+@keyframes fdup{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+@media(max-width:600px){.tabs{overflow-x:auto;gap:0;}.tab-btn{white-space:nowrap;flex-shrink:0;}}
+
+/* VENUE GRID */
+.vgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;}
+.vc{position:relative;overflow:hidden;background:#111;cursor:pointer;}
+.vc img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .75s cubic-bezier(.25,.46,.45,.94),filter .5s;filter:brightness(.52) saturate(.85);}
+.vc:hover img{transform:scale(1.09);filter:brightness(.22) saturate(.6);}
+.vc::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .5s cubic-bezier(.22,1,.36,1);z-index:3;}
+.vc:hover::after{transform:scaleX(1);}
+.vc-body{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:1.8rem;z-index:2;background:linear-gradient(to top,rgba(14,14,16,.97) 0%,rgba(14,14,16,.45) 50%,transparent 100%);}
+.vc-tag{font-family:'Jost',sans-serif;font-size:.48rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold2);margin-bottom:.32rem;font-weight:500;}
+.vc-name{font-family:'Cormorant Garamond',serif;font-size:1.55rem;font-weight:400;color:var(--white);line-height:1.1;transition:color .3s;}
+.vc:hover .vc-name{color:var(--gold2);}
+.vc-reveal{max-height:0;overflow:hidden;transition:max-height .55s cubic-bezier(.22,1,.36,1) .05s;}
+.vc:hover .vc-reveal{max-height:220px;}
+.vc-desc{font-family:'Jost',sans-serif;font-size:.73rem;color:rgba(255,255,255,.6);line-height:1.7;margin-top:.55rem;max-width:300px;font-weight:300;}
+.vc-badges{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.6rem;}
+.badge{font-family:'Jost',sans-serif;font-size:.44rem;letter-spacing:.12em;text-transform:uppercase;background:rgba(192,146,58,.1);border:1px solid rgba(192,146,58,.28);color:var(--gold2);padding:.18rem .5rem;font-weight:500;}
+.vc-cta{font-family:'Jost',sans-serif;display:inline-flex;align-items:center;gap:.35rem;margin-top:.8rem;font-size:.55rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);text-decoration:none;font-weight:600;}
+.vc-cta::after{content:'→';transition:margin .25s;}
+.vc-cta:hover::after{margin-left:4px;}
+/* sizes */
+.vc-h{height:300px;}
+.vc-feat{grid-column:span 2;height:400px;}
+.vc-wide{grid-column:span 2;height:320px;}
+@media(max-width:900px){.vgrid{grid-template-columns:1fr 1fr;}.vc-feat,.vc-wide{grid-column:span 2;}}
+@media(max-width:560px){.vgrid{grid-template-columns:1fr;}.vc,.vc-feat,.vc-wide{grid-column:span 1;height:260px;}}
+
+/* YACHTS */
+#yachts{background:var(--dark);}
+#yachts h2{color:var(--white);}
+.yacht-intro{font-family:'Jost',sans-serif;color:rgba(255,255,255,.45);font-size:.86rem;line-height:1.9;max-width:580px;margin-top:.5rem;font-weight:300;}
+.yacht-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-top:3rem;}
+.yacht-card{background:var(--dark3);padding:2.8rem 2.2rem;border:1px solid rgba(255,255,255,.04);border-top:2px solid rgba(192,146,58,.35);transition:border-top-color .3s,background .3s;}
+.yacht-card:hover{border-top-color:var(--gold);background:rgba(192,146,58,.03);}
+.yacht-name{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:400;color:var(--white);margin-bottom:.6rem;}
+.yacht-desc{font-family:'Jost',sans-serif;font-size:.78rem;color:rgba(255,255,255,.42);line-height:1.8;margin-bottom:1.5rem;font-weight:300;}
+.yacht-feats{list-style:none;margin-bottom:1.8rem;}
+.yacht-feats li{font-family:'Jost',sans-serif;font-size:.7rem;color:rgba(255,255,255,.38);padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.04);display:flex;align-items:center;gap:.6rem;font-weight:300;}
+.yacht-feats li::before{content:'';width:3px;height:3px;border-radius:50%;background:var(--gold);flex-shrink:0;}
+.yacht-cta{font-family:'Jost',sans-serif;font-size:.55rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);text-decoration:none;font-weight:600;display:inline-flex;align-items:center;gap:.4rem;}
+.yacht-cta::after{content:'→';transition:margin .25s;}
+.yacht-cta:hover::after{margin-left:4px;}
+.yacht-note{font-family:'Jost',sans-serif;text-align:center;margin-top:3rem;color:rgba(255,255,255,.35);font-size:.78rem;margin-bottom:1.5rem;font-weight:300;}
+@media(max-width:900px){.yacht-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:560px){.yacht-grid{grid-template-columns:1fr;}}
+
+/* TRANSPORT */
+#transport{background:var(--sand);}
+.transport-inner{display:grid;grid-template-columns:1fr 1fr;gap:7rem;align-items:center;}
+.transport-img{position:relative;height:480px;}
+.transport-img img{width:100%;height:100%;object-fit:cover;display:block;}
+.transport-img::before{content:'';position:absolute;inset:-3px;background:linear-gradient(135deg,var(--gold) 0%,transparent 50%);z-index:-1;}
+.transport-list{list-style:none;margin-top:2rem;}
+.t-li{display:flex;gap:1.4rem;align-items:flex-start;padding:1.3rem 0;border-bottom:1px solid var(--sand2);}
+.t-li:last-child{border-bottom:none;}
+.t-li-mark{width:6px;height:6px;border-radius:50%;background:var(--gold);margin-top:.5rem;flex-shrink:0;}
+.t-li-title{font-family:'Jost',sans-serif;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--dark);font-weight:600;margin-bottom:.3rem;}
+.t-li-desc{font-family:'Jost',sans-serif;font-size:.8rem;color:var(--txt2);line-height:1.7;font-weight:300;}
+@media(max-width:900px){.transport-inner{grid-template-columns:1fr;gap:3rem;}.transport-img{height:240px;}}
+
+/* HOW */
+#how{background:var(--dark2);}
+#how h2{color:var(--white);}
+.how-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:4.5rem;border:1px solid rgba(255,255,255,.05);}
+.how-step{padding:2.8rem 2rem;border-right:1px solid rgba(255,255,255,.05);transition:background .3s;}
+.how-step:last-child{border-right:none;}
+.how-step:hover{background:rgba(192,146,58,.04);}
+.how-n{font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-weight:300;color:rgba(192,146,58,.14);line-height:1;margin-bottom:.8rem;}
+.how-title{font-family:'Jost',sans-serif;font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--white);margin-bottom:.75rem;font-weight:500;}
+.how-desc{font-family:'Jost',sans-serif;font-size:.78rem;color:rgba(255,255,255,.38);line-height:1.75;font-weight:300;}
+@media(max-width:900px){.how-grid{grid-template-columns:1fr 1fr;}.how-step{border-bottom:1px solid rgba(255,255,255,.05);}}
+@media(max-width:560px){.how-grid{grid-template-columns:1fr;}}
+
+/* TESTIMONIALS */
+#testi{background:var(--cream);}
+.tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3.5rem;}
+.tcard{background:var(--white);padding:2.4rem;border-top:2px solid transparent;transition:border-top-color .3s,box-shadow .3s;}
+.tcard:hover{border-top-color:var(--gold);box-shadow:0 8px 32px rgba(0,0,0,.06);}
+.tcard-stars{color:var(--gold);font-size:.65rem;letter-spacing:.15em;margin-bottom:1.3rem;font-family:'Jost',sans-serif;}
+.tcard-q{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-style:italic;font-weight:300;line-height:1.75;color:var(--dark);margin-bottom:1.6rem;}
+.tcard-author{font-family:'Jost',sans-serif;font-size:.62rem;letter-spacing:.08em;color:var(--txt3);font-weight:300;}
+.tcard-author strong{color:var(--gold);display:block;font-weight:500;font-size:.66rem;margin-bottom:2px;letter-spacing:.05em;}
+@media(max-width:900px){.tgrid{grid-template-columns:1fr;}}
+
+/* CONTACT */
+#contact{background:var(--dark);position:relative;overflow:hidden;}
+#contact::before{content:'CANCÚN';font-family:'Cormorant Garamond',serif;font-size:20vw;font-weight:500;color:rgba(192,146,58,.035);position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;white-space:nowrap;line-height:1;}
+.contact-inner{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:7rem;align-items:start;}
+.contact-inner h2{color:var(--white);}
+.contact-copy{font-family:'Jost',sans-serif;color:rgba(255,255,255,.42);font-size:.84rem;line-height:1.95;margin-top:1rem;font-weight:300;}
+.ccards{display:flex;flex-direction:column;gap:2px;margin-top:2.5rem;}
+.ccard{background:var(--dark3);padding:1.5rem;display:flex;gap:1.2rem;align-items:center;border:1px solid rgba(255,255,255,.04);transition:border-color .3s,background .3s;}
+.ccard:hover{border-color:rgba(192,146,58,.22);background:rgba(192,146,58,.03);}
+.ccard-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0;}
+.ccard-label{font-family:'Jost',sans-serif;font-size:.5rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:.28rem;font-weight:400;}
+.ccard-val{font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:var(--white);}
+.ccard-val a{color:var(--gold2);text-decoration:none;transition:color .2s;}
+.ccard-val a:hover{color:var(--gold3);}
+.contact-right{padding-top:.5rem;}
+.contact-right h3{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:300;font-style:italic;color:var(--white);margin-bottom:1rem;line-height:1.3;}
+.contact-right p{font-family:'Jost',sans-serif;color:rgba(255,255,255,.38);font-size:.8rem;line-height:1.9;margin-bottom:1.5rem;font-weight:300;}
+.wa-btn{display:flex;align-items:center;gap:.8rem;background:linear-gradient(135deg,#25D366,#128C7E);color:var(--white);padding:1.1rem 2rem;font-family:'Jost',sans-serif;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;font-weight:600;text-decoration:none;margin-bottom:.8rem;transition:all .3s;}
+.wa-btn:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(37,211,102,.25);}
+.wa-btn svg{width:18px;height:18px;fill:var(--white);}
+.ig-btn{display:flex;align-items:center;gap:.8rem;background:linear-gradient(135deg,#833AB4,#FD1D1D,#FCAF45);color:var(--white);padding:1.1rem 2rem;font-family:'Jost',sans-serif;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;font-weight:600;text-decoration:none;transition:all .3s;}
+.ig-btn:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(131,58,180,.25);}
+.ig-btn svg{width:18px;height:18px;fill:var(--white);}
+@media(max-width:900px){.contact-inner{grid-template-columns:1fr;gap:3rem;}}
+
+/* FOOTER */
+footer{background:var(--dark2);padding:2rem 5vw;display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(255,255,255,.04);}
+.footer-logo{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:400;color:var(--gold);letter-spacing:.06em;}
+.footer-copy{font-family:'Jost',sans-serif;font-size:.55rem;color:rgba(255,255,255,.22);letter-spacing:.1em;font-weight:300;}
+.footer-links{display:flex;gap:2rem;}
+.footer-links a{font-family:'Jost',sans-serif;font-size:.52rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.25);text-decoration:none;transition:color .3s;font-weight:400;}
+.footer-links a:hover{color:var(--gold);}
+@media(max-width:700px){footer{flex-direction:column;gap:1.2rem;text-align:center;padding:2rem 1.5rem;}}
+
+/* WA FLOAT */
+.waf{position:fixed;bottom:1.8rem;right:1.8rem;z-index:300;width:52px;height:52px;background:linear-gradient(135deg,#25D366,#128C7E);border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,.38);animation:wap 3s ease infinite;transition:transform .3s;}
+.waf:hover{transform:scale(1.1);}
+@keyframes wap{0%,100%{box-shadow:0 4px 20px rgba(37,211,102,.32);}50%{box-shadow:0 4px 38px rgba(37,211,102,.58);}}
+.waf svg{width:25px;height:25px;fill:white;}
+
+/* REVEAL */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1);}
+.rv.in{opacity:1;transform:translateY(0);}
+.d1{transition-delay:.1s;}.d2{transition-delay:.2s;}.d3{transition-delay:.3s;}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="logo">RSV <span>Elite</span></a>
+  <ul class="nav-links">
+    <li><a href="#venues">Venues</a></li>
+    <li><a href="#yachts">Yachts</a></li>
+    <li><a href="#transport">Transfers</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="https://wa.me/529983464917" class="nav-cta" target="_blank">Reserve Now</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-ov"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">
+      <div class="hero-eyebrow-bar"></div>
+      <span>Cancún · Mexican Caribbean</span>
+    </div>
+    <h1 class="hero-title">
+      The Best of Cancun<strong>Reserved for You</strong>
+    </h1>
+    <p class="hero-sub">Restaurants, nightlife, yachts and private transfers — one concierge, all the access you need in the Mexican Caribbean.</p>
+    <div class="hero-btns">
+      <a href="#venues" class="btn btn-solid">Explore Venues</a>
+      <a href="https://wa.me/529983464917" class="btn btn-line" target="_blank">WhatsApp Us</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <p>Scroll</p>
+    <div class="hero-line"></div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="mq" aria-hidden="true">
+  <div class="mq-track">
+    <span>Rosa Negra</span><span class="dot">/</span><span>Harry's</span><span class="dot">/</span><span>Coco Bongo</span><span class="dot">/</span><span>Tora Cancun</span><span class="dot">/</span><span>Ilios</span><span class="dot">/</span><span>Yacht Charters</span><span class="dot">/</span><span>Porfirio's</span><span class="dot">/</span><span>H Roof</span><span class="dot">/</span><span>Private Transfers</span><span class="dot">/</span><span>Chambao</span><span class="dot">/</span><span>Fred's</span><span class="dot">/</span><span>Confessions</span><span class="dot">/</span><span>Señor Frog's</span><span class="dot">/</span><span>Bodega Argentina</span><span class="dot">/</span><span>Beach Party</span><span class="dot">/</span>
+    <span>Rosa Negra</span><span class="dot">/</span><span>Harry's</span><span class="dot">/</span><span>Coco Bongo</span><span class="dot">/</span><span>Tora Cancun</span><span class="dot">/</span><span>Ilios</span><span class="dot">/</span><span>Yacht Charters</span><span class="dot">/</span><span>Porfirio's</span><span class="dot">/</span><span>H Roof</span><span class="dot">/</span><span>Private Transfers</span><span class="dot">/</span><span>Chambao</span><span class="dot">/</span><span>Fred's</span><span class="dot">/</span><span>Confessions</span><span class="dot">/</span><span>Señor Frog's</span><span class="dot">/</span><span>Bodega Argentina</span><span class="dot">/</span><span>Beach Party</span><span class="dot">/</span>
+  </div>
+</div>
+
+<!-- STRIP -->
+<div class="strip rv">
+  <div class="strip-item">
+    <div class="strip-icon"><svg viewBox="0 0 24 24"><path d="M18.5 3H6C4.3 3 3 4.3 3 6v2c0 1.1.9 2 2 2h1v9c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2v-9h1c1.1 0 2-.9 2-2V6c0-1.7-1.3-3-2.5-3zM15 19H9v-8h6v8zm3-11H6V6h12v2z"/></svg></div>
+    <p class="strip-title">Fine Dining</p>
+    <p class="strip-desc">18+ elite restaurants with VIP table reservations</p>
+  </div>
+  <div class="strip-item">
+    <div class="strip-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg></div>
+    <p class="strip-title">Nightlife</p>
+    <p class="strip-desc">VIP access to Cancun's most iconic clubs</p>
+  </div>
+  <div class="strip-item">
+    <div class="strip-icon"><svg viewBox="0 0 24 24"><path d="M20 21c-1.6 0-3.2-.4-4.5-1.3l-.5-.3-.5.3C13.2 20.6 11.6 21 10 21s-3.2-.4-4.5-1.3l-.5-.3-.5.3C3.2 20.6 1.6 21 0 21v-2c1.2 0 2.4-.3 3.5-.8L4 18l.5-.2c1.1.5 2.3.8 3.5.8s2.4-.3 3.5-.8l.5.2.5-.2c1.1.5 2.3.8 3.5.8s2.4-.3 3.5-.8l.5.2.5-.2c1.1.5 2.3.8 3.5.8v2zM4.5 9h15L20 8H4l.5 1zm1 4h13l.5-1H5l.5 1z"/></svg></div>
+    <p class="strip-title">Yacht Charters</p>
+    <p class="strip-desc">Private yachts for any occasion on the Caribbean</p>
+  </div>
+  <div class="strip-item">
+    <div class="strip-icon"><svg viewBox="0 0 24 24"><path d="M17 12H7l-4 4V4c0-1.1.9-2 2-2h14c1.1 0 2 .9 2 2v6c0 1.1-.9 2-2 2zm-5 6l-4 4v-4H3c-1.1 0-2-.9-2-2v-3h2v3h7v2.2l2.2-2.2H20v-3h2v3c0 1.1-.9 2-2 2h-8z"/></svg></div>
+    <p class="strip-title">Private Transfers</p>
+    <p class="strip-desc">Airport to hotel in a private Suburban, stress-free</p>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-img rv">
+    <img src="FOTOS PAGINA/ROSA NEGRA .jpg" alt="Rosa Negra Cancun">
+  </div>
+  <div class="about-copy rv d2">
+    <p class="label">Who We Are</p>
+    <h2>Your Concierge in the <em>Mexican Caribbean</em></h2>
+    <div class="rule"></div>
+    <p>RSV Elite is Cancun's most trusted reservation service — a direct, personal connection to the best restaurants, clubs, yachts and experiences the Mexican Caribbean has to offer.</p>
+    <p>We are the <strong>official booking partner</strong> for Grupo Rosa Negra, Grupo Anderson's and Coco Bongo — three iconic hospitality groups with 18+ of Cancun's most celebrated venues.</p>
+    <p>No apps, no lines, no uncertainty. Just a real person who answers fast, knows every venue and makes sure your Cancun experience is exceptional from the moment you land.</p>
+    <div class="about-nums">
+      <div><div class="num-n">18+</div><div class="num-l">Elite Venues</div></div>
+      <div><div class="num-n">3</div><div class="num-l">Iconic Groups</div></div>
+      <div><div class="num-n">24h</div><div class="num-l">Concierge</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- VENUES -->
+<section id="venues" class="section" style="background:var(--cream);">
+  <div class="section-head rv">
+    <p class="label">Our Portfolio</p>
+    <h2>The Finest <em>Restaurants & Nightlife</em></h2>
+    <div class="rule"></div>
+    <p style="font-family:'Jost',sans-serif;color:var(--txt2);font-size:.84rem;line-height:1.85;max-width:520px;margin-top:.5rem;font-weight:300;">Hover over any venue to learn more — click to reserve instantly via WhatsApp.</p>
+  </div>
+
+  <div class="tabs rv">
+    <button class="tab-btn on" onclick="showTab('rosa',this)">Grupo Rosa Negra</button>
+    <button class="tab-btn" onclick="showTab('and',this)">Grupo Anderson's</button>
+    <button class="tab-btn" onclick="showTab('coco',this)">Coco Bongo</button>
+  </div>
+
+  <!-- ROSA NEGRA -->
+  <div class="tab-pane on" id="tab-rosa">
+    <div class="vgrid">
+      <div class="vc vc-feat">
+        <img src="FOTOS PAGINA/ROSA NEGRA .jpg" alt="Rosa Negra">
+        <div class="vc-body">
+          <p class="vc-tag">Latin American · Lagoon Views · Live Shows</p>
+          <div class="vc-name">Rosa Negra</div>
+          <div class="vc-reveal">
+            <p class="vc-desc">Multi-level wooden deck over Nichupté Lagoon. Kobe beef, Peruvian ceviches, charcoal cuts and signature cocktails served to live bongos, resident DJ and a fire show under the Caribbean sky.</p>
+            <div class="vc-badges"><span class="badge">Open Daily</span><span class="badge">Lagoon Views</span><span class="badge">Private Events</span></div>
+            <a href="https://wa.me/529983464917" class="vc-cta" target="_blank">Reserve Table</a>
+          </div>
+        </div>
+      </div>
+      <div class="vc vc-h">
+        <img src="FOTOS PAGINA/TORA CANCUN.jpg" alt="Tora Cancun">
+        <div class="vc-body">
+          <p class="vc-tag">Japanese Fine Dining</p>
+          <div class="vc-name">Tora Cancun</div>
+          <div class="vc-reveal">
+            <p class="vc-desc">Omakase, premium sushi and Japanese-Peruvian fusion with breathtaking lagoon views and a live fire show.</p>
+            <a href="https://wa.me/529983464917" class="vc-cta" target="_blank">Reserve Table</a>
+          </div>
+        </div>
+      </div>
+      <div class="vc vc-h">
+        <img src="FOTOS PAGINA/CHAMBAO.jpg" alt="Chambao">
+        <div class="vc-body">
+          <p class="vc-tag">Premium Steakhouse</p>
+          <div class="vc-name">Chambao</div>
+          <div class="vc-reveal">
+            <p class="vc-desc">Overwater decks, premium Argentine and USA Prime cuts, vibrant live entertainment and a glamorous atmosphere on the lagoon.</p>
+            <a href="https://wa.me/529983464917" class="vc-cta" target="_blank">Reserve Table</a>
+          </div>
+        </div>
+      </div>
+      <div class="vc vc-h">
+        <img src="FOTOS PAGINA/CONFESSIONS.jpg" alt="Confessions">
+        <div class="vc-body">
+          <p class="vc-tag">Open-Air Nightclub</p>
+          <div class="vc-name">Confessions</div>
+          <div class="vc-reveal">
+            <p class="vc-desc">Cancun's most seductive open-air club — electronic beats, spectacular visual mixology and top DJs in the Hotel Zone.</p>
+            <a href="https://wa.me/529983464917" class="vc-cta" target="_blank">Reserve Table</a>
+          </div>
+        </div>
+      </div>
+      <div class="vc vc-h">
+        <img src="FOTOS PAGINA/PAROLE.png" alt="Parole">
+        <div class="vc-body">
+          <p class="vc-tag">Italian · Romantic</p>
+          <div class="vc-name">Parole</div>
+          <div class="vc-reveal">
+            <p class="vc-desc">Handmade dishes, live violin and tenor music — timeless Italian romance over the Caribbean lagoon.</p>
+            <a href="https://wa.me/529983464917" class="vc-cta" target="_blank">Reserve Table</a>
+          </div>
+        </div>
+      </div>
+      <div class="vc vc-h">
+        <img src="FOTOS PAGINA/MESTIZA .jpg" alt="Mestiza">
+        <div class="vc-body">
+          <p class="vc-tag">Latin American</p>
+          <div class="vc-name">Mestiza</div>
+          <div class="vc-reveal">
+            <p class="vc-desc">Peruvian, Argentine, Colombian, Brazilian and Mexican flavors united in one vibrant menu with warm Caribbean energy.</p>
+            <a href="https://wa.me/529983464917" class="vc-cta" target="_blank">Reserve Table</a>
+          </div>
+        </div>
+      </div>
+      <div class="vc vc-h">
+        <img src="FOTOS PAGINA/taboo.jpg" alt="Taboo">
+        <div class="vc-body">
+          <p class="vc-tag">Boho-Chic Lounge</p>
+          <div class="vc-name">Taboo</div>
+          <div class="vc-reveal">
+            <p class="vc-desc">Mediterranean cuisine, fashion shows, live violinists and House & Electronic DJs. Inspired by Tulum's bohemian soul.</p>
+            <a href="https://wa.me/529983464917" class="vc-cta" target="_blank">Reserve Table</a>
+          </div>
+        </div>
+      </div>
+      <div class="vc vc-wide">
+        <img src="FOTOS PAGINA/COCO BEACH.jpg" alt="Coco Beach">
+        <div class="vc-body">
+          <p class="vc-tag">Beach Club · Caribbean</p>
+          <div class="vc-name">Coco Beach</div>
+          <div class="vc-reveal">
+            <p class="vc-desc">Crystal turquoise waters, luxury sunbeds, premium cocktails and world-class service under the Cancun sun. Your perfect Caribbean day.</p>
+            <a href="https://wa.me/529983464917" class="vc-cta" target="_blank">Reserve Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ANDERSON -->
+  <div class="tab-pane" id="tab-and">
+    <div class="vgrid">
+      <div class="vc vc-feat">
+        <img src="FOTOS PAGINA/HARRYS.jpg" alt="Harry's">
+        <div class="vc-body">
+          <p class="vc-tag">Prime Steakhouse & Raw Bar · 5 Star Diamond</p>
+          <div class="vc-name">Harry's</div>
+          <div class="vc-reveal">
+            <p class="vc-desc">Mexico's most trusted restaurant — Kobe beef, Wagyu, Alaskan King Crab and a world-class Raw Bar on the Nichupté Lagoon. Five Star Diamond. Premios Marcas de Confianza 2025.</p>
+            <div class="vc-badges"><span class="badge">5 Star Diamond AAHS</span><span class="badge">Marcas de Confianza 2025</span></div>
+            <a href="https://wa.me/529983464917" class="vc-cta" target="_blank">Reserve Table</a>
+          </div>
+        </div>
+      </div>
+      <div class="vc vc-h">
+        <img src="FOTOS PAGINA/PORFIRIOS.png" alt="Porfirios">
+        <div class="vc-body">
+          <p class="vc-tag">Mexican Haute Cuisine</p>
+          <div class="vc-name">Porfirio's</div>
+          <div class="vc-reveal">
+            <p class="vc-desc">Mexico's most celebrated fine dining institution. Best Mexican Cuisine — World Best of the Best Awards, Dubai. Five Star Diamond.</p>
+            <div class="vc-badges"><span class="badge">5 Star Diamond</span><span class="badge">Best Mexican Cuisine — Dubai</span></div>
+            <a href="https://wa.me/529983464917" class="vc-cta" target="_blank">Reserve Table</a>
+          </div>
+        </div>
+      </div>
+      <div class="vc vc-h">
+        <img src="FOTOS PAGINA/ILIOS.jpg" alt="Ilios">
+        <div class="vc-body">
+          <p class="vc-tag">Greek Estiatorio</p>
+          <div class="vc-name">Ilios</div>
+          <div class="vc-reveal">
+            <p class="vc-desc">DNA Paris Design Award — Best Interior. Best Restaurant in the Americas & Caribbean. Authentic Greek cuisine at a new level of elegance.</p>
+            <div class="vc-badges"><span class="badge">DNA Paris Design Award</span><span class="badge">Best Restaurant Americas</span></div>
+            <a href="https://wa.me/529983464917" class="vc-cta" target="_blank">Reserve Table</a>
+          </div>
+        </div>
+      </div>
+      <div class="vc vc-h">
+        <img src="FOTOS PAGINA/FREDS.jpg" alt="Fred's">
+        <div class="vc-body">
+          <p class="vc-tag">Seafood & Lobster</p>
+          <div class="vc-name">Fred's</div>
+          <div class="vc-reveal">
+            <p class="vc-desc">Cancun's definitive seafood restaurant since 2011. The finest lobsters, fresh catch and stunning Nichupté Lagoon views. 100 Must-Try Restaurants Mexico 2022.</p>
+            <div class="vc-badges"><span class="badge">100 Must-Try Mexico 2022</span></div>
+            <a href="https://wa.me/529983464917" class="vc-cta" target="_blank">Reserve Table</a>
+          </div>
+        </div>
+      </div>
+      <div class="vc vc-h">
+        <img src="FOTOS PAGINA/NICOLETTA.jpeg" alt="Nicoletta">
+        <div class="vc-body">
+          <p class="vc-tag">Italian Contemporary</p>
+          <div class="vc-name">Nicoletta</div>
+          <div class="vc-reveal">
+            <p class="vc-desc">Italian culinary tradition reimagined with Mexican endemic ingredients. Five Star Diamond. Best International Cuisine — Taste México Awards.</p>
+            <div class="vc-badges"><span class="badge">5 Star Diamond</span><span class="badge">Best International — Taste México</span></div>
+            <a href="https://wa.me/529983464917" class="vc-cta" target="_blank">Reserve Table</a>
+          </div>
+        </div>
+      </div>
+      <div class="vc vc-h">
+        <img src="FOTOS PAGINA/BODEGA ARGENTINA.jpg" alt="Bodega Argentina">
+        <div class="vc-body">
+          <p class="vc-tag">Argentine Parrilla</p>
+          <div class="vc-name">Bodega Argentina</div>
+          <div class="vc-reveal">
+            <p class="vc-desc">Traditional parrilla, premium cuts, curated wines and a Buenos Aires atmosphere in exclusive Puerto Cancún.</p>
+            <a href="https://wa.me/529983464917" class="vc-cta" target="_blank">Reserve Table</a>
+          </div>
+        </div>
+      </div>
+      <div class="vc vc-h">
+        <img src="FOTOS PAGINA/H ROOF.jpeg" alt="H Roof">
+        <div class="vc-body">
+          <p class="vc-tag">Rooftop Nightclub</p>
+          <div class="vc-name">H Roof</div>
+          <div class="vc-reveal">
+            <p class="vc-desc">Cancun's most exclusive rooftop nightclub — Five Star Diamond by AAHS. Where the chic and international crowd gathers for legendary nights above the Hotel Zone.</p>
+            <div class="vc-badges"><span class="badge">5 Star Diamond AAHS</span></div>
+            <a href="https://wa.me/529983464917" class="vc-cta" target="_blank">Reserve Table</a>
+          </div>
+        </div>
+      </div>
+      <div class="vc vc-wide">
+        <img src="FOTOS PAGINA/SEÑOR FROGS.jpg" alt="Señor Frog's">
+        <div class="vc-body">
+          <p class="vc-tag">Mexican Party Restaurant · Est. 1971</p>
+          <div class="vc-name">Señor Frog's</div>
+          <div class="vc-reveal">
+            <p class="vc-desc">A Cancun institution since 1971. Bold Mexican food, legendary Yard drinks, live music and wild energy. A rite of passage for every visitor to the Mexican Caribbean.</p>
+            <div class="vc-badges"><span class="badge">Est. 1971</span><span class="badge">Lagoon Views</span><span class="badge">100% Mexican</span></div>
+            <a href="https://wa.me/529983464917" class="vc-cta" target="_blank">Reserve Table</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COCO BONGO -->
+  <div class="tab-pane" id="tab-coco">
+    <div class="vgrid">
+      <div class="vc vc-feat" style="height:460px;">
+        <img src="FOTOS PAGINA/COCO BONGO .avif" alt="Coco Bongo">
+        <div class="vc-body">
+          <p class="vc-tag">World-Famous Show-Club · Est. 1996 · 1,800+ Capacity</p>
+          <div class="vc-name">Coco Bongo</div>
+          <div class="vc-reveal">
+            <p class="vc-desc">The most iconic nightclub in Latin America — flying acrobats, tributes to The Mask, Queen, Moulin Rouge and more. Confetti storms, open bar and 40+ artists every night. A once-in-a-lifetime experience.</p>
+            <div class="vc-badges"><span class="badge">Open Daily 10:30pm–5am</span><span class="badge">Open Bar Included</span><span class="badge">VIP Gold Available</span></div>
+            <a href="https://wa.me/529983464917" class="vc-cta" target="_blank">Get VIP Access</a>
+          </div>
+        </div>
+      </div>
+      <div class="vc" style="height:460px;">
+        <img src="FOTOS PAGINA/COCO BEACH.jpg" alt="Coco Bongo Beach Party">
+        <div class="vc-body">
+          <p class="vc-tag">Day Beach Party · Caribbean Sea · Open Bar All Day</p>
+          <div class="vc-name">Coco Bongo Beach Party</div>
+          <div class="vc-reveal">
+            <p class="vc-desc">The wildest day party in the Caribbean — white sands, turquoise sea, aerial acrobats, DJs, a pool and premium open bar from morning to sunset. After this, no other party will be enough.</p>
+            <div class="vc-badges"><span class="badge">Open Bar All Day</span><span class="badge">Acrobats & DJs</span><span class="badge">Caribbean Beachfront</span></div>
+            <a href="https://wa.me/529983464917" class="vc-cta" target="_blank">Reserve Now</a>
+          </div>
+        </div>
+      </div>
+      <div class="vc vc-h">
+        <img src="FOTOS PAGINA/CONGO BAR.jpg" alt="Congo Bar">
+        <div class="vc-body">
+          <p class="vc-tag">Classic Nightclub · Hotel Zone</p>
+          <div class="vc-name">Congo Bar</div>
+          <div class="vc-reveal">
+            <p class="vc-desc">Right next to Coco Bongo — a high-energy dance floor and great music. The perfect spot to keep the night alive.</p>
+            <a href="https://wa.me/529983464917" class="vc-cta" target="_blank">Reserve Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- YACHTS -->
+<section id="yachts" class="section">
+  <div class="section-head rv">
+    <p class="label">Yacht Charters</p>
+    <h2 class="light">Set Sail on the <em>Caribbean Sea</em></h2>
+    <div class="rule"></div>
+    <p class="yacht-intro">Private yacht charters for any occasion — birthdays, bachelorette parties, corporate events or simply a perfect day on the turquoise waters of the Mexican Caribbean.</p>
+  </div>
+  <div class="yacht-grid rv">
+    <div class="yacht-card">
+      <div class="yacht-name">Half Day Charter</div>
+      <p class="yacht-desc">4 hours of pure Caribbean freedom — snorkeling at coral reefs, swimming in crystal waters, and relaxing on deck with drinks and music.</p>
+      <ul class="yacht-feats">
+        <li>Up to 15 guests</li>
+        <li>Snorkeling equipment included</li>
+        <li>Open bar & snacks</li>
+        <li>Captain & crew</li>
+        <li>Isla Mujeres or Punta Nizuc routes</li>
+      </ul>
+      <a href="https://wa.me/529983464917" class="yacht-cta" target="_blank">Get a Quote</a>
+    </div>
+    <div class="yacht-card">
+      <div class="yacht-name">Full Day Charter</div>
+      <p class="yacht-desc">A full day exploring the best of the Mexican Caribbean — visit Isla Mujeres, snorkel Garrafón, swim in open ocean and watch the sunset from deck.</p>
+      <ul class="yacht-feats">
+        <li>Up to 20 guests</li>
+        <li>Full day 8am–6pm</li>
+        <li>Premium open bar</li>
+        <li>Lunch on board</li>
+        <li>Captain, crew & DJ option</li>
+      </ul>
+      <a href="https://wa.me/529983464917" class="yacht-cta" target="_blank">Get a Quote</a>
+    </div>
+    <div class="yacht-card">
+      <div class="yacht-name">Sunset Cruise</div>
+      <p class="yacht-desc">Watch the Caribbean sun go down from the deck of a private yacht — the most romantic and spectacular way to experience Cancun's legendary sunsets.</p>
+      <ul class="yacht-feats">
+        <li>Up to 12 guests</li>
+        <li>2–3 hour sunset cruise</li>
+        <li>Champagne & premium drinks</li>
+        <li>Charcuterie & appetizers</li>
+        <li>Live music or DJ optional</li>
+      </ul>
+      <a href="https://wa.me/529983464917" class="yacht-cta" target="_blank">Get a Quote</a>
+    </div>
+  </div>
+  <p class="yacht-note rv">Custom charters available for any group size or occasion. Contact us for a personalized quote.</p>
+  <div style="text-align:center;" class="rv">
+    <a href="https://wa.me/529983464917" class="btn btn-solid" target="_blank">Charter a Yacht</a>
+  </div>
+</section>
+
+<!-- TRANSPORT -->
+<section id="transport" class="section">
+  <div class="transport-inner">
+    <div class="transport-img rv">
+      <img src="FOTOS PAGINA/PORTADA.jpg" alt="Private Transport Cancun">
+    </div>
+    <div class="rv d2">
+      <p class="label">Private Transfers</p>
+      <h2>Airport to Hotel in <em>Total Comfort</em></h2>
+      <div class="rule"></div>
+      <p style="font-family:'Jost',sans-serif;color:var(--txt2);font-size:.86rem;line-height:1.95;margin-bottom:.5rem;font-weight:300;">Your Cancun experience begins the moment you land. Skip the chaos of shared shuttles and arrive in a private Suburban, stress-free from the first minute.</p>
+      <ul class="transport-list">
+        <li class="t-li">
+          <div class="t-li-mark"></div>
+          <div>
+            <p class="t-li-title">Airport Pickup</p>
+            <p class="t-li-desc">Meet & greet at Cancun International Airport. Your driver waits at arrivals with your name, handles luggage and takes you directly to your hotel.</p>
+          </div>
+        </li>
+        <li class="t-li">
+          <div class="t-li-mark"></div>
+          <div>
+            <p class="t-li-title">Private Suburban</p>
+            <p class="t-li-desc">Spacious, air-conditioned Suburban for up to 7 passengers. Clean, comfortable and reliable — the best way to travel the Hotel Zone corridor.</p>
+          </div>
+        </li>
+        <li class="t-li">
+          <div class="t-li-mark"></div>
+          <div>
+            <p class="t-li-title">All Hotels Covered</p>
+            <p class="t-li-desc">Hotel Zone, downtown Cancun, Puerto Morelos, Playa del Carmen and the Riviera Maya. Round trips available.</p>
+          </div>
+        </li>
+        <li class="t-li">
+          <div class="t-li-mark"></div>
+          <div>
+            <p class="t-li-title">Book via WhatsApp</p>
+            <p class="t-li-desc">Send us your flight details and we handle everything. Fast confirmation, fixed rates, no surprises.</p>
+          </div>
+        </li>
+      </ul>
+      <a href="https://wa.me/529983464917" class="btn btn-solid" target="_blank" style="display:inline-block;margin-top:2rem;">Book a Transfer</a>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how" class="section">
+  <div class="section-head center rv">
+    <p class="label">The Process</p>
+    <h2 class="light" style="text-align:center;">Simple, Fast, <em>Reliable</em></h2>
+    <div class="rule center" style="margin-top:1.5rem;"></div>
+  </div>
+  <div class="how-grid rv">
+    <div class="how-step">
+      <div class="how-n">01</div>
+      <p class="how-title">Choose</p>
+      <p class="how-desc">Browse our venues, yachts and services. Decide what you want to experience in Cancun.</p>
+    </div>
+    <div class="how-step">
+      <div class="how-n">02</div>
+      <p class="how-title">Contact</p>
+      <p class="how-desc">Message us on WhatsApp or Instagram with your date, group size and preferences.</p>
+    </div>
+    <div class="how-step">
+      <div class="how-n">03</div>
+      <p class="how-title">Confirm</p>
+      <p class="how-desc">We reply fast, secure your reservation and handle every detail — no stress, no complications.</p>
+    </div>
+    <div class="how-step">
+      <div class="how-n">04</div>
+      <p class="how-title">Enjoy</p>
+      <p class="how-desc">Show up and enjoy. The Caribbean is waiting — we made sure everything is perfect.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testi" class="section">
+  <div class="section-head rv">
+    <p class="label">What Our Guests Say</p>
+    <h2>Real Experiences, <em>Real People</em></h2>
+    <div class="rule"></div>
+  </div>
+  <div class="tgrid rv">
+    <div class="tcard">
+      <div class="tcard-stars">★ ★ ★ ★ ★</div>
+      <p class="tcard-q">"Rosa Negra at sunset was magical — the fire show, the bongos, the lagoon. Then Coco Bongo VIP. RSV handled everything perfectly. Best night of my life in Cancun."</p>
+      <div class="tcard-author"><strong>Ashley M.</strong>Chicago, IL · Bachelorette Party</div>
+    </div>
+    <div class="tcard">
+      <div class="tcard-stars">★ ★ ★ ★ ★</div>
+      <p class="tcard-q">"Harry's was everything. Kobe beef, lagoon views, impeccable service. RSV got us the best table in the house. The airport transfer was seamless too — highly recommend."</p>
+      <div class="tcard-author"><strong>Carlos R.</strong>CDMX · Anniversary Dinner</div>
+    </div>
+    <div class="tcard">
+      <div class="tcard-stars">★ ★ ★ ★ ★</div>
+      <p class="tcard-q">"Private yacht for 12 people, dinner at Ilios, then H Roof VIP — all organized in one WhatsApp conversation. RSV Elite is the only way to do Cancun properly."</p>
+      <div class="tcard-author"><strong>James & Group</strong>New York, NY · Corporate Trip</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section">
+  <div class="contact-inner">
+    <div class="rv">
+      <p class="label">Get in Touch</p>
+      <h2 class="light">Let's Plan Your <em>Perfect Night</em></h2>
+      <div class="rule"></div>
+      <p class="contact-copy">We respond in under 5 minutes via WhatsApp. Tell us what you're looking for and we'll take care of everything. It's that simple.</p>
+      <div class="ccards">
+        <div class="ccard">
+          <div class="ccard-dot"></div>
+          <div>
+            <p class="ccard-label">WhatsApp</p>
+            <p class="ccard-val"><a href="https://wa.me/529983464917" target="_blank">+52 998 346 4917</a></p>
+          </div>
+        </div>
+        <div class="ccard">
+          <div class="ccard-dot"></div>
+          <div>
+            <p class="ccard-label">Instagram</p>
+            <p class="ccard-val"><a href="https://www.instagram.com/rsv_elite?igsh=ZzdhMzRudjR3bG0%3D&utm_source=qr" target="_blank">@rsv_elite</a></p>
+          </div>
+        </div>
+        <div class="ccard">
+          <div class="ccard-dot"></div>
+          <div>
+            <p class="ccard-label">Location</p>
+            <p class="ccard-val" style="font-size:.88rem;">Zona Hotelera, Cancún<br>Quintana Roo, México</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="contact-right rv d2">
+      <p class="label">Ready to Reserve?</p>
+      <h3>Message us and we'll have everything arranged before you know it.</h3>
+      <p>Available 24/7, in English and Spanish. Whether you're a tourist planning your trip or a local looking for the best table in town — we have you covered.</p>
+      <p>Restaurants · Nightlife · Yachts · Airport Transfers · Special Events</p>
+      <a href="https://wa.me/529983464917" class="wa-btn" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp Us Now
+      </a>
+      <a href="https://www.instagram.com/rsv_elite?igsh=ZzdhMzRudjR3bG0%3D&utm_source=qr" class="ig-btn" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        Follow @rsv_elite
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">RSV Elite</div>
+  <p class="footer-copy">© 2025 RSV Elite · Cancún, Mexican Caribbean</p>
+  <div class="footer-links">
+    <a href="#venues">Venues</a>
+    <a href="#yachts">Yachts</a>
+    <a href="#transport">Transfers</a>
+    <a href="#contact">Contact</a>
+  </div>
+</footer>
+
+<!-- WA FLOAT -->
+<a href="https://wa.me/529983464917" class="waf" target="_blank" aria-label="WhatsApp RSV Elite">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('sc',window.scrollY>80));
+const io=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}});},{threshold:.08});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+function showTab(id,btn){
+  document.querySelectorAll('.tab-pane').forEach(t=>t.classList.remove('on'));
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('on'));
+  document.getElementById('tab-'+id).classList.add('on');
+  btn.classList.add('on');
+}
+</script>
+</body>
+</html>
